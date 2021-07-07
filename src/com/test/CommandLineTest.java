@@ -1,5 +1,6 @@
 package com.test;
 
+import com.java.CmdTest;
 import org.junit.Test;
 
 public class CommandLineTest {

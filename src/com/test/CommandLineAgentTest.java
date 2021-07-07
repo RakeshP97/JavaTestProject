@@ -1,5 +1,6 @@
 package com.test;
 
+import com.java.CmdTest;
 import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

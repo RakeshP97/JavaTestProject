@@ -1,6 +1,7 @@
-package com.test;
+package com.java;
 
 import org.junit.Test;
+import org.junit.jupiter.api.Tag;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -11,11 +12,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  *
  * C:\Users\rakes\Repositiory\JavaTestProject>java -jar libraires\junit-platform-console-standalone-1.6.2.jar --class-path=src;libraires\selenium-server-standalone-3.141.59.jar --scan-class-path --reports-dir=reports
  *
+ *
+ * javac -cp "libraires\*" src\com\java\*.java src\com\test\*.java
+ *
+ * java -jar libraires\junit-platform-console-standalone-1.6.2.jar --class-path=src;libraires\selenium-server-standalone-3.141.59.jar --scan-class-path --include-package=com.test
  * */
 public class CmdTest {
 
     private static String agentNo;
 
+    @Tag("abc")
     @Test
     public void test_setup(){
         String url = System.getProperty("url");
@@ -28,6 +34,7 @@ public class CmdTest {
         assertEquals(10,10);
     }
 
+    @Tag("car")
     @Test
     public void test_agentCreate(){
        /** String persist = System.getProperty("persist");
