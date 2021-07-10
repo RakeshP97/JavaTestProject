@@ -7,5 +7,5 @@ out/*
 JavaTestProject.iml
 
 *.class
-reports
 reports/*
+out

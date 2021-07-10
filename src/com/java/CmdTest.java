@@ -1,7 +1,8 @@
 package com.java;
 
-import org.junit.Test;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -10,18 +11,24 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  *
  * C:\Users\rakes\Repositiory\JavaTestProject>javac -cp "libraires\*" src\com\test\*.java
  *
- * C:\Users\rakes\Repositiory\JavaTestProject>java -jar libraires\junit-platform-console-standalone-1.6.2.jar --class-path=src;libraires\selenium-server-standalone-3.141.59.jar --scan-class-path --reports-dir=reports
+ * C:\Users\rakes\Repositiory\JavaTestProject>java -jar libraires\junit-platform-console-standalone-1.7.2.jar --class-path=src;libraires\selenium-server-standalone-3.141.59.jar --scan-class-path --reports-dir=reports
  *
  *
  * javac -cp "libraires\*" src\com\java\*.java src\com\test\*.java
  *
- * java -jar libraires\junit-platform-console-standalone-1.6.2.jar --class-path=src;libraires\selenium-server-standalone-3.141.59.jar --scan-class-path --include-package=com.test
+ * java -jar libraires\junit-platform-console-standalone-1.7.2.jar --class-path=src;libraires\selenium-server-standalone-3.141.59.jar --scan-class-path --include-package=com.test
+ *
+ * java -jar libraires\junit-platform-console-standalone-1.7.2.jar --classpath src;libraires\selenium-server-standalone-3.141.59.jar -p com.java -t "api"
  * */
+@Tags(value =
+        {@Tag("regression"),
+                @Tag("user_module")
+        })
 public class CmdTest {
 
     private static String agentNo;
 
-    @Tag("abc")
+    @Tag("api")
     @Test
     public void test_setup(){
         String url = System.getProperty("url");
@@ -34,7 +41,7 @@ public class CmdTest {
         assertEquals(10,10);
     }
 
-    @Tag("car")
+    @Tag("api")
     @Test
     public void test_agentCreate(){
        /** String persist = System.getProperty("persist");
@@ -48,12 +55,11 @@ public class CmdTest {
 
         agentNo="222";
         System.out.println("Persisted agentNo::" +agentNo);
-        assertEquals(agentNo,10);
+        assertEquals(agentNo,"222");
 
     }
 
     public static String getAgentNo() {
-
         return agentNo;
     }
 
